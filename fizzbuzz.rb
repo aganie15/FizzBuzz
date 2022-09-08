@@ -1,31 +1,31 @@
+def multiple_of(value, multiple)
+  return (value % multiple == 0)
+end
+
 def fizzbuzz
-  for i in 1..100
+  puts 'Please enter the maximum value'
+  max_value = gets.to_i
+
+  for i in 1..max_value
     output = ''
 
-    multiple_of_three = (i % 3 == 0)
-    multiple_of_five = (i % 5 == 0)
-    multiple_of_seven = (i % 7 == 0)
-    multiple_of_eleven = (i % 11 == 0)
-    multiple_of_thirteen = (i % 13 == 0)
-    multiple_of_seventeen = (i % 17 == 0)
-
-    if multiple_of_three
+    if multiple_of(i, 3)
       output = output + 'Fizz'
     end
 
-    if multiple_of_five
+    if multiple_of(i, 5)
       output = output + 'Buzz'
     end
 
-    if multiple_of_seven
+    if multiple_of(i, 7)
       output = output + 'Bang'
     end
 
-    if multiple_of_eleven
+    if multiple_of(i, 11)
       output = 'Bong'
     end
 
-    if multiple_of_thirteen
+    if multiple_of(i, 13)
       # Find the index of the first occurrence of 'B'
       index_of_b = (output =~ /B/)
       if index_of_b == 0
@@ -37,10 +37,10 @@ def fizzbuzz
       end
     end
 
-    if multiple_of_seventeen
+    if multiple_of(i, 17)
       # split output on occurrence of capital letters
       word_array = output.split(/(?=[A-Z])/)
-      word_array = word_array.reverse!
+      word_array.reverse!
       # concatenate the elements of word_array
       output = word_array * ''
     end
